@@ -1,8 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { TopNavigation } from './components/layout/TopNavigation';
 import { HeroSection } from './components/sections/HeroSection';
-import { ProMediaSection } from './components/sections/ProMediaSection';
-import { VIVHeroVideoSection } from './components/sections/VIVHeroVideoSection';
 import { VIVBrandStorySection } from './components/sections/VIVBrandStorySection';
 import { VIVProductMenuSection } from './components/sections/VIVProductMenuSection';
 import { VIVCustomerOccasionsSection } from './components/sections/VIVCustomerOccasionsSection';
@@ -10,15 +8,9 @@ import { VIVPositioningExperienceSection } from './components/sections/VIVPositi
 import { VIVSensoryVideoSection } from './components/sections/VIVSensoryVideoSection';
 import { VIVMarketingBusinessSection } from './components/sections/VIVMarketingBusinessSection';
 import { VIVOperationsScalabilitySection } from './components/sections/VIVOperationsScalabilitySection';
-import { VIVTeamSection } from './components/sections/VIVTeamSection';
 import { VIVExpansion50Section } from './components/sections/VIVExpansion50Section';
+import { VIVEcosystemTeamSection } from './components/sections/VIVEcosystemTeamSection';
 import { VIVPartnershipSection } from './components/sections/VIVPartnershipSection';
-import { ElzuzzatSection } from './components/sections/ElzuzzatSection';
-import { MohamedElhaganSection } from './components/sections/MohamedElhaganSection';
-import { MohamedSalamSection } from './components/sections/MohamedSalamSection';
-import { FiveRoostersSection } from './components/sections/FiveRoostersSection';
-import { FinalEcosystemSection } from './components/sections/FinalEcosystemSection';
-import { GlobalContactSection } from './components/sections/GlobalContactSection';
 
 import { LightboxModal } from './components/common/LightboxModal';
 import { VideoPlayerModal } from './components/common/VideoPlayerModal';
@@ -43,67 +35,47 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-noir text-ivory font-sans antialiased selection:bg-gold-500/30 selection:text-gold-200">
-      {/* Fixed Luxury Presentation Navigation */}
+    <div className="min-h-screen bg-viv-cream text-viv-chocolate font-sans antialiased selection:bg-viv-yellow selection:text-viv-chocolate">
+      {/* VIV Brand Top Navigation */}
       <TopNavigation />
 
-      {/* Chapter 00 — Opening Overture */}
+      {/* 01 — VIV Hero / First Impression (VIV ONLY) */}
       <HeroSection onOpenVideo={handleOpenVideo} />
 
-      {/* Chapter 01 — ProMedia (Foundation) */}
-      <ProMediaSection 
-        onOpenLightbox={handleOpenLightbox}
-        onOpenFeaturedWork={handleOpenFeaturedWork}
-      />
-
-      {/* Chapter 02 — VIV Croissants (The Culinary Hero) */}
-      <VIVHeroVideoSection onOpenVideo={handleOpenVideo} />
+      {/* 02 — VIV The Vision & Concept */}
       <VIVBrandStorySection onOpenLightbox={handleOpenLightbox} />
+
+      {/* 03 — VIV Product & Menu */}
       <VIVProductMenuSection />
+
+      {/* 04 — VIV Customer & Occasions */}
       <VIVCustomerOccasionsSection />
+
+      {/* 05 — VIV Positioning & 360 Experience */}
       <VIVPositioningExperienceSection />
+
+      {/* 06 — VIV Sensory Cinema (Film 02) */}
       <VIVSensoryVideoSection onOpenVideo={handleOpenVideo} />
+
+      {/* 07 — VIV Marketing Engine & Business Model */}
       <VIVMarketingBusinessSection />
+
+      {/* 08 — VIV Operations, Centralized Commissary & Unit Economics */}
       <VIVOperationsScalabilitySection />
-      <VIVTeamSection onOpenLightbox={handleOpenLightbox} />
+
+      {/* 09 — The 50-Location Expansion Vision */}
       <VIVExpansion50Section />
-      <VIVPartnershipSection 
-        onOpenFeaturedWork={handleOpenFeaturedWork}
+
+      {/* 10 — The Team & Supporting Ecosystem */}
+      <VIVEcosystemTeamSection 
         onOpenLightbox={handleOpenLightbox}
         onOpenVideo={handleOpenVideo}
       />
 
-      {/* Chapter 03 — Elzuzzat */}
-      <ElzuzzatSection 
-        onOpenLightbox={handleOpenLightbox}
-        onOpenFeaturedWork={handleOpenFeaturedWork}
-      />
+      {/* 11 — Final VIV Brand Promise & Mall Partnership */}
+      <VIVPartnershipSection onOpenVideo={handleOpenVideo} />
 
-      {/* Chapter 04 — Mohamed Elhagan */}
-      <MohamedElhaganSection 
-        onOpenLightbox={handleOpenLightbox}
-        onOpenFeaturedWork={handleOpenFeaturedWork}
-      />
-
-      {/* Chapter 05 — Mohamed Salam */}
-      <MohamedSalamSection 
-        onOpenLightbox={handleOpenLightbox}
-        onOpenFeaturedWork={handleOpenFeaturedWork}
-      />
-
-      {/* Chapter 06 — 5 Roosters / Eng. Ahmed Hassan */}
-      <FiveRoostersSection 
-        onOpenLightbox={handleOpenLightbox}
-        onOpenFeaturedWork={handleOpenFeaturedWork}
-      />
-
-      {/* Chapter 07 — Final Integrated Ecosystem */}
-      <FinalEcosystemSection />
-
-      {/* Chapter 08 — Global Contacts & Inquiries */}
-      <GlobalContactSection />
-
-      {/* Modals */}
+      {/* Global Modals */}
       <LightboxModal 
         media={lightboxMedia} 
         onClose={() => setLightboxMedia(null)} 

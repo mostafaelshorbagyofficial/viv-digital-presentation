@@ -1,5 +1,5 @@
 ﻿import React, { useEffect, useRef, useState } from 'react';
-import { X, Play, Pause, Volume2, VolumeX, Maximize, RotateCcw } from 'lucide-react';
+import { X, Play, Pause, Volume2, VolumeX, Maximize, ExternalLink } from 'lucide-react';
 import { MediaItem } from '../../types/presentation';
 
 interface VideoPlayerModalProps {
@@ -21,7 +21,7 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
-      if (e.key === ' ') {
+      if (e.key === ' ' && !isYouTube && !isInstagram) {
         e.preventDefault();
         togglePlay();
       }
@@ -38,6 +38,22 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
   }, [media, onClose]);
 
   if (!media) return null;
+
+  const isYouTube = media.src.includes('youtu.be') || media.src.includes('youtube.com');
+  const isInstagram = media.src.includes('instagram.com');
+
+  // Convert YouTube URL to embed URL
+  const getYouTubeEmbedUrl = (url: string) => {
+    if (url.includes('youtu.be/')) {
+      const id = url.split('youtu.be/')[1].split('?')[0];
+      return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+    }
+    if (url.includes('watch?v=')) {
+      const id = url.split('watch?v=')[1].split('&')[0];
+      return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+    }
+    return url;
+  };
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -92,7 +108,19 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
       onClick={onClose}
     >
       {/* Top Close Button */}
-      <div className="absolute top-6 right-6 z-50">
+      <div className="absolute top-6 right-6 z-50 flex items-center gap-3">
+        {(isYouTube || isInstagram) && (
+          <a
+            href={media.src}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="p-3 text-ivory/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors backdrop-blur-sm border border-white/10 flex items-center gap-1.5 text-xs font-mono"
+          >
+            <span>Open Source</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        )}
         <button
           onClick={onClose}
           className="p-3 text-ivory/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors backdrop-blur-sm border border-white/10"
@@ -104,86 +132,111 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
 
       {/* Video Content Container */}
       <div 
-        className="relative w-full max-w-5xl flex flex-col items-center bg-noir-card rounded-2xl overflow-hidden border border-gold-500/20 shadow-2xl shadow-black/80"
+        className="relative w-full max-w-5xl flex flex-col items-center bg-viv-burgundy-dark/95 rounded-2xl overflow-hidden border border-viv-yellow/30 shadow-2xl shadow-black/80"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative w-full aspect-video bg-black flex items-center justify-center group">
-          <video
-            ref={videoRef}
-            src={media.src}
-            autoPlay
-            playsInline
-            onTimeUpdate={handleTimeUpdate}
-            onClick={togglePlay}
-            className="w-full h-full object-contain cursor-pointer"
-          />
-
-          {/* Center Play/Pause Overlay Indicator */}
-          {!isPlaying && (
-            <button
-              onClick={togglePlay}
-              className="absolute inset-0 m-auto w-20 h-20 bg-gold-500/80 hover:bg-gold-500 text-noir rounded-full flex items-center justify-center shadow-lg transition-transform transform hover:scale-110"
-            >
-              <Play className="w-8 h-8 fill-current ml-1" />
-            </button>
-          )}
-
-          {/* Bottom Player Controls */}
-          <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 sm:p-6 opacity-95 transition-opacity">
-            {/* Scrubber */}
-            <input
-              type="range"
-              min="0"
-              max="100"
-              step="0.1"
-              value={progress}
-              onChange={handleSeek}
-              className="w-full h-1 bg-white/30 rounded-lg appearance-none cursor-pointer accent-gold-400 mb-4"
+        <div className="relative w-full aspect-video bg-black flex items-center justify-center">
+          {isYouTube ? (
+            <iframe
+              src={getYouTubeEmbedUrl(media.src)}
+              title={media.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full border-0"
             />
-
-            <div className="flex items-center justify-between text-ivory text-sm">
-              <div className="flex items-center gap-4">
-                <button 
-                  onClick={togglePlay}
-                  className="text-ivory hover:text-gold-300 transition-colors"
-                >
-                  {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 fill-current" />}
-                </button>
-                <button 
-                  onClick={toggleMute}
-                  className="text-ivory hover:text-gold-300 transition-colors"
-                >
-                  {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-                </button>
-                <span className="font-mono text-xs text-ivory/70">
-                  {currentTime} / {duration}
-                </span>
+          ) : isInstagram ? (
+            <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-viv-burgundy to-viv-chocolate">
+              <div className="w-20 h-20 rounded-full bg-viv-yellow/20 border border-viv-yellow flex items-center justify-center text-viv-yellow mb-6">
+                <Play className="w-8 h-8 fill-current ml-1" />
               </div>
-
-              <div className="flex items-center gap-4">
-                <button 
-                  onClick={handleFullscreen}
-                  className="text-ivory hover:text-gold-300 transition-colors"
-                  aria-label="Fullscreen"
-                >
-                  <Maximize className="w-5 h-5" />
-                </button>
-              </div>
+              <h3 className="text-2xl font-serif text-ivory mb-2">{media.title}</h3>
+              <p className="text-sm text-viv-cream/80 max-w-md mb-6">{media.caption || 'Official Instagram Reel Experience'}</p>
+              <a
+                href={media.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3.5 rounded-full bg-viv-yellow text-viv-chocolate font-mono text-xs tracking-widest uppercase font-bold hover:bg-viv-yellow-light transition-all shadow-lg flex items-center gap-2"
+              >
+                <span>Watch Reel on Instagram</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
-          </div>
+          ) : (
+            <>
+              <video
+                ref={videoRef}
+                src={media.src}
+                autoPlay
+                playsInline
+                onTimeUpdate={handleTimeUpdate}
+                onClick={togglePlay}
+                className="w-full h-full object-contain cursor-pointer"
+              />
+
+              {!isPlaying && (
+                <button
+                  onClick={togglePlay}
+                  className="absolute inset-0 m-auto w-20 h-20 bg-viv-yellow/90 hover:bg-viv-yellow text-viv-chocolate rounded-full flex items-center justify-center shadow-lg transition-transform transform hover:scale-110"
+                >
+                  <Play className="w-8 h-8 fill-current ml-1" />
+                </button>
+              )}
+
+              {/* Bottom Player Controls */}
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 sm:p-6 opacity-95 transition-opacity">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  value={progress}
+                  onChange={handleSeek}
+                  className="w-full h-1 bg-white/30 rounded-lg appearance-none cursor-pointer accent-viv-yellow mb-4"
+                />
+
+                <div className="flex items-center justify-between text-ivory text-sm">
+                  <div className="flex items-center gap-4">
+                    <button 
+                      onClick={togglePlay}
+                      className="text-ivory hover:text-viv-yellow transition-colors"
+                    >
+                      {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 fill-current" />}
+                    </button>
+                    <button 
+                      onClick={toggleMute}
+                      className="text-ivory hover:text-viv-yellow transition-colors"
+                    >
+                      {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                    </button>
+                    <span className="font-mono text-xs text-ivory/70">
+                      {currentTime} / {duration}
+                    </span>
+                  </div>
+
+                  <button 
+                    onClick={handleFullscreen}
+                    className="text-ivory hover:text-viv-yellow transition-colors"
+                    aria-label="Fullscreen"
+                  >
+                    <Maximize className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Video Info Header */}
-        <div className="w-full p-6 bg-noir-elevated border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="w-full p-6 bg-viv-burgundy-deep border-t border-viv-yellow/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-gold-400 block mb-1">
-              {media.subtitle || 'Cinematic Video Experience'}
+            <span className="text-xs font-mono uppercase tracking-widest text-viv-yellow block mb-1">
+              {media.subtitle || 'VIV Presentation Cinema'}
             </span>
             <h3 className="text-xl font-serif text-ivory">
               {media.title}
             </h3>
             {media.caption && (
-              <p className="text-sm text-ivory-muted/70 mt-1">
+              <p className="text-sm text-viv-cream/70 mt-1 font-light">
                 {media.caption}
               </p>
             )}

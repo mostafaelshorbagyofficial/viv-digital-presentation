@@ -7,20 +7,40 @@ export default {
   theme: {
     extend: {
       colors: {
+        viv: {
+          burgundy: {
+            DEFAULT: '#641F2B',
+            dark: '#48131D',
+            deep: '#320C13',
+            light: '#7E2A38',
+            subtle: '#8C3544',
+          },
+          yellow: {
+            DEFAULT: '#F4C95D',
+            light: '#FCE39E',
+            soft: '#FEF1D0',
+            dark: '#D8A836',
+          },
+          cream: {
+            DEFAULT: '#FFF3DC',
+            soft: '#FAF4EA',
+            muted: '#F5E9D3',
+            dark: '#E8D5B7',
+          },
+          chocolate: {
+            DEFAULT: '#3A2420',
+            dark: '#261613',
+            light: '#543832',
+          },
+        },
         gold: {
           50: '#FAF6E9',
           100: '#F4EAC8',
           200: '#EBD893',
-          300: '#E2C55E',
+          300: '#F4C95D',
           400: '#DAB637',
           500: '#C99E1F',
-          600: '#A78117',
-          700: '#7E6012',
-          800: '#55400D',
-          900: '#2E2207',
-          accent: '#D4AF37',
-          champagne: '#E6D5B8',
-          light: '#F5EBE1',
+          accent: '#F4C95D',
         },
         ivory: {
           DEFAULT: '#FAF8F5',
@@ -29,16 +49,16 @@ export default {
           dark: '#D8CEBF',
         },
         noir: {
-          DEFAULT: '#0D0C0B',
-          rich: '#141312',
-          card: '#1A1816',
-          border: '#282420',
-          elevated: '#211E1B',
+          DEFAULT: '#141110',
+          rich: '#1A1615',
+          card: '#221D1C',
+          border: '#332B29',
+          elevated: '#2A2321',
         },
         espresso: {
-          DEFAULT: '#251D18',
-          light: '#3D312A',
-          dark: '#16110E',
+          DEFAULT: '#3A2420',
+          light: '#543832',
+          dark: '#261613',
         }
       },
       fontFamily: {

@@ -1,15 +1,14 @@
 ﻿import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Compass, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
 
 const NAV_ITEMS = [
-  { id: 'promedia', label: 'PRO MEDIA', num: '01' },
-  { id: 'viv-croissants', label: 'VIV CROISSANTS', num: '02' },
-  { id: 'elzuzzat', label: 'ELZUZZAT', num: '03' },
-  { id: 'elhagan', label: 'M. ELHAGAN', num: '04' },
-  { id: 'salam', label: 'M. SALAM', num: '05' },
-  { id: 'five-roosters', label: '5 ROOSTERS', num: '06' },
-  { id: 'ecosystem', label: 'ECOSYSTEM', num: '07' },
-  { id: 'contact', label: 'CONTACT', num: '08' }
+  { id: 'brand-story', label: 'THE VISION', num: '01' },
+  { id: 'concept-pillars', label: 'THE CONCEPT', num: '02' },
+  { id: 'menu-architecture', label: 'THE MENU', num: '03' },
+  { id: 'sensory-experience', label: 'EXPERIENCE', num: '04' },
+  { id: 'growth-50', label: '50-STORE VISION', num: '05' },
+  { id: 'team-ecosystem', label: 'THE TEAM', num: '06' },
+  { id: 'partnership', label: 'PARTNERSHIP', num: '07' }
 ];
 
 export const TopNavigation: React.FC = () => {
@@ -21,15 +20,13 @@ export const TopNavigation: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY;
-      setIsScrolled(scrollPos > 60);
+      setIsScrolled(scrollPos > 50);
 
-      // Compute total scroll progress percentage
       const winHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       if (winHeight > 0) {
         setScrollProgress((scrollPos / winHeight) * 100);
       }
 
-      // Check current section
       const sections = ['hero', ...NAV_ITEMS.map(item => item.id)];
       for (const sectionId of sections.reverse()) {
         const el = document.getElementById(sectionId);
@@ -60,35 +57,31 @@ export const TopNavigation: React.FC = () => {
       <header
         className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${
           isScrolled
-            ? 'bg-noir/90 backdrop-blur-xl border-b border-white/10 py-3 shadow-2xl shadow-black/50'
-            : 'bg-gradient-to-b from-noir/90 via-noir/40 to-transparent py-5'
+            ? 'bg-viv-burgundy-deep/95 backdrop-blur-xl border-b border-viv-yellow/20 py-3 shadow-2xl'
+            : 'bg-gradient-to-b from-viv-burgundy-deep/90 via-viv-burgundy-deep/40 to-transparent py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo Brand Anchor */}
+          {/* VIV Brand Identity Logo */}
           <button
             onClick={() => scrollToSection('hero')}
             className="flex items-center gap-3 text-left group"
           >
-            <div className="w-8 h-8 rounded bg-white p-1 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-              <img
-                src="/assets/promedia/pro-media-logo.png"
-                alt="Pro Media"
-                className="w-full h-full object-contain"
-              />
+            <div className="h-9 px-3 rounded-lg bg-viv-yellow text-viv-chocolate font-serif font-black text-xl tracking-tighter flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+              VIV
             </div>
-            <div className="hidden sm:block">
-              <span className="text-xs font-mono tracking-widest text-ivory/90 group-hover:text-gold-300 transition-colors uppercase font-semibold">
-                PROMEDIA × VIV
+            <div>
+              <span className="text-xs font-mono tracking-widest text-viv-cream group-hover:text-viv-yellow transition-colors uppercase font-bold block">
+                CROISSANTS
               </span>
-              <span className="block text-[10px] font-mono tracking-widest text-ivory/50">
-                MASTER PRESENTATION
+              <span className="text-[10px] font-serif italic text-viv-yellow/80">
+                Good Food Brighter Days
               </span>
             </div>
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center gap-1 bg-noir-card/60 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
+          <nav className="hidden xl:flex items-center gap-1 bg-viv-burgundy-dark/80 p-1.5 rounded-full border border-viv-yellow/20 backdrop-blur-md">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -97,8 +90,8 @@ export const TopNavigation: React.FC = () => {
                   onClick={() => scrollToSection(item.id)}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider transition-all duration-300 relative ${
                     isActive
-                      ? 'bg-gold-500 text-noir font-bold shadow-lg shadow-gold-500/20'
-                      : 'text-ivory/70 hover:text-white hover:bg-white/5'
+                      ? 'bg-viv-yellow text-viv-chocolate font-bold shadow-lg shadow-viv-yellow/20'
+                      : 'text-viv-cream/80 hover:text-viv-yellow hover:bg-white/5'
                   }`}
                 >
                   <span className="opacity-60 text-[10px] mr-1.5">{item.num}</span>
@@ -111,17 +104,16 @@ export const TopNavigation: React.FC = () => {
           {/* Quick Action Button & Mobile Trigger */}
           <div className="flex items-center gap-3">
             <button
-              onClick={() => scrollToSection('contact')}
-              className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono tracking-widest uppercase bg-gold-500/10 text-gold-300 hover:bg-gold-500 hover:text-noir border border-gold-500/30 transition-all duration-300"
+              onClick={() => scrollToSection('partnership')}
+              className="hidden sm:flex items-center gap-2 px-5 py-2 rounded-full text-xs font-mono tracking-widest uppercase bg-viv-yellow text-viv-chocolate font-bold hover:bg-viv-yellow-light transition-all duration-300 shadow-md"
             >
-              <span>Connect</span>
+              <span>Partner With VIV</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
 
-            {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 text-ivory/80 hover:text-white bg-white/5 border border-white/10 rounded-full"
+              className="xl:hidden p-2 text-viv-cream hover:text-viv-yellow bg-viv-burgundy-dark border border-viv-yellow/20 rounded-full"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -129,10 +121,10 @@ export const TopNavigation: React.FC = () => {
           </div>
         </div>
 
-        {/* Scroll Progress Bar */}
-        <div className="absolute bottom-0 inset-x-0 h-[2px] bg-white/5">
+        {/* Scroll Progress Bar in Butter Yellow */}
+        <div className="absolute bottom-0 inset-x-0 h-[2px] bg-viv-burgundy-dark">
           <div
-            className="h-full bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 transition-all duration-150"
+            className="h-full bg-gradient-to-r from-viv-yellow via-viv-cream to-viv-yellow transition-all duration-150"
             style={{ width: `${scrollProgress}%` }}
           />
         </div>
@@ -140,10 +132,10 @@ export const TopNavigation: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-30 bg-noir/95 backdrop-blur-2xl xl:hidden pt-24 px-6 pb-8 flex flex-col justify-between animate-fadeIn">
+        <div className="fixed inset-0 z-30 bg-viv-burgundy-deep/98 backdrop-blur-2xl xl:hidden pt-24 px-6 pb-8 flex flex-col justify-between animate-fadeIn">
           <div className="space-y-2">
-            <p className="text-xs font-mono tracking-widest uppercase text-gold-400 mb-4 px-2">
-              Presentation Chapters
+            <p className="text-xs font-mono tracking-widest uppercase text-viv-yellow mb-4 px-2">
+              VIV Brand Presentation
             </p>
             {NAV_ITEMS.map((item) => (
               <button
@@ -151,12 +143,12 @@ export const TopNavigation: React.FC = () => {
                 onClick={() => scrollToSection(item.id)}
                 className={`w-full flex items-center justify-between p-3.5 rounded-xl text-left font-serif text-lg tracking-wide transition-colors ${
                   activeSection === item.id
-                    ? 'bg-gold-500/10 text-gold-300 border border-gold-500/30'
-                    : 'text-ivory hover:bg-white/5'
+                    ? 'bg-viv-yellow text-viv-chocolate font-semibold'
+                    : 'text-viv-cream hover:bg-white/5'
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono text-gold-400/80">{item.num}</span>
+                  <span className="text-xs font-mono text-viv-yellow">{item.num}</span>
                   <span>{item.label}</span>
                 </div>
                 <ArrowUpRight className="w-4 h-4 opacity-50" />
@@ -164,12 +156,12 @@ export const TopNavigation: React.FC = () => {
             ))}
           </div>
 
-          <div className="pt-6 border-t border-white/10">
+          <div className="pt-6 border-t border-viv-yellow/20">
             <button
-              onClick={() => scrollToSection('contact')}
-              className="w-full py-4 rounded-xl text-sm font-mono tracking-widest uppercase bg-gold-500 text-noir font-bold text-center"
+              onClick={() => scrollToSection('partnership')}
+              className="w-full py-4 rounded-xl text-sm font-mono tracking-widest uppercase bg-viv-yellow text-viv-chocolate font-bold text-center"
             >
-              Get in Touch & Locations
+              Mall Placement & Partnership
             </button>
           </div>
         </div>
