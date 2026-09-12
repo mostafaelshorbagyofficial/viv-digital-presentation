@@ -225,12 +225,12 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                   onClick={() => onOpenVideo({
                     id: 'promedia-profile-reel',
                     type: 'video',
-                    title: 'ProMedia Production House Showcase',
-                    subtitle: 'Automotive Commercials & Documentaries',
-                    src: '/assets/vid/croissant-video-1.mp4',
+                    title: 'ProMedia Production House Promotional Film',
+                    subtitle: 'Official Production Showcase',
+                    src: '/assets/promedia/promedia-promo-video.mp4',
                     caption: 'ProMedia integrated cinematic production, editing, and commercial campaigns.'
                   })}
-                  className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-viv-cream border border-viv-yellow/30 font-mono text-xs uppercase tracking-wider flex items-center gap-2 transition-colors"
+                  className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-viv-cream border border-viv-yellow/40 font-mono text-xs uppercase tracking-wider flex items-center gap-2 transition-colors shadow-lg"
                 >
                   <Play className="w-3.5 h-3.5 fill-current text-viv-yellow" />
                   <span>Watch ProMedia Production Reel</span>
@@ -347,7 +347,7 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                     src: 'https://www.instagram.com/reel/DHZHs-JSv4z/?stkn=ZzR4MTZpcWh0',
                     caption: 'Experience the signature crunch, kitchen workflow, and high-velocity fast casual operations.'
                   })}
-                  className="px-6 py-3 rounded-full bg-viv-yellow text-viv-chocolate font-mono text-xs uppercase tracking-wider font-bold flex items-center gap-2 hover:bg-viv-yellow-light transition-colors shadow-lg"
+                  className="px-6 py-3.5 rounded-full bg-viv-yellow text-viv-chocolate font-mono text-xs uppercase tracking-wider font-bold flex items-center gap-2 hover:bg-viv-yellow-light transition-colors shadow-lg"
                 >
                   <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                   <span>Watch 5 Roosters Video Reel</span>
@@ -410,7 +410,7 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
             </div>
           </div>
 
-          {/* Dedicated Blue View Subsection */}
+          {/* Dedicated Blue View Subsection with Connected Instagram Reel */}
           <div className="pt-8 border-t border-viv-yellow/20">
             <div className="flex items-center justify-between mb-6">
               <span className="text-xs font-mono uppercase tracking-widest text-viv-yellow font-bold">
@@ -431,7 +431,7 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                 </div>
               </div>
 
-              {/* Blue View Summary & Action */}
+              {/* Blue View Summary & Action with exact requested video */}
               <div className="md:col-span-7 space-y-4">
                 <h4 className="text-xl font-serif text-viv-cream">
                   Blue View Hospitality Experience
@@ -444,14 +444,14 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                   onClick={() => onOpenVideo({
                     id: 'blue-view-video',
                     type: 'video',
-                    title: 'Blue View Cafe Experience',
-                    subtitle: 'Hospitality & Social Destination',
-                    src: '/assets/vid/croissant-video-2.mp4',
-                    caption: 'Atmospheric dining and social cafe moments developed by Elzuzzat.'
+                    title: 'Blue View Cafe — Hospitality Showcase',
+                    subtitle: 'Official Video Reel by Elzuzzat',
+                    src: 'https://www.instagram.com/reel/DDNM_6rN_EH/?stkn=ZTlveHBqNjk3eHRp',
+                    caption: 'Atmospheric dining and social cafe moments at Blue View Cafe developed by Elzuzzat.'
                   })}
-                  className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-viv-cream border border-viv-yellow/30 font-mono text-xs uppercase tracking-wider flex items-center gap-2 transition-colors"
+                  className="px-6 py-3.5 rounded-full bg-viv-yellow text-viv-chocolate font-mono text-xs uppercase tracking-wider font-bold flex items-center gap-2 hover:bg-viv-yellow-light transition-colors shadow-lg"
                 >
-                  <Play className="w-3.5 h-3.5 fill-current text-viv-yellow" />
+                  <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                   <span>Watch Blue View Hospitality Showcase</span>
                 </button>
               </div>
