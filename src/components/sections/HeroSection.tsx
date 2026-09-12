@@ -95,11 +95,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
         {/* Right Column: Clean Premium VIV Brand Logo Container */}
         <div className="lg:col-span-5 xl:col-span-4 flex justify-start lg:justify-end">
           <div className="w-full max-w-sm sm:max-w-md p-6 sm:p-8 rounded-3xl bg-viv-cream border border-viv-yellow/40 shadow-2xl flex flex-col items-center justify-center text-center group transition-all duration-300 hover:shadow-viv-yellow/10">
-            <div className="w-full overflow-hidden rounded-2xl bg-white p-4 shadow-sm border border-viv-burgundy/5 flex items-center justify-center">
+            <div className="w-full overflow-hidden rounded-2xl bg-white p-6 sm:p-8 shadow-sm border border-viv-burgundy/5 flex items-center justify-center">
               <img
-                src="/assets/viv/viv-logo-versions.jpg"
-                alt="VIV Croissants Logo Versions"
-                className="w-full h-auto max-h-[220px] object-contain"
+                src="/assets/viv/viv-official-logo.png"
+                alt="VIV Croissants Official Logo"
+                className="w-full h-auto max-h-[160px] object-contain"
               />
             </div>
             <div className="mt-4 pt-3 border-t border-viv-burgundy/10 w-full flex items-center justify-between text-[11px] font-mono text-viv-burgundy/80">
