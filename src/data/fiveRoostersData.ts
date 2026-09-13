@@ -1,4 +1,4 @@
-﻿import { FeaturedWork } from '../types/presentation';
+import { FeaturedWork } from '../types/presentation';
 
 export const fiveRoostersData = {
   brand: {
@@ -9,7 +9,7 @@ export const fiveRoostersData = {
   },
 
   founder: {
-    name: "ENG. AHMED HASSAN",
+    name: "ENG. AHMED HASSAN SELIM",
     title: "CEO & CO-FOUNDER",
     company: "5 ROOSTERS FRIED CHICKEN",
     portrait: "/assets/five-roosters/ahmed-hassan-portrait.jpg",
