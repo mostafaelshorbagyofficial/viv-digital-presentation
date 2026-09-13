@@ -15,6 +15,14 @@ interface VIVEcosystemTeamSectionProps {
   onOpenVideo: (media: MediaItem) => void;
 }
 
+const InstagramIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+  </svg>
+);
+
 const TEAM_PILLARS = [
   {
     name: 'AHMED HASSAN',
@@ -167,7 +175,20 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                 {elhaganData.bio}
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-viv-yellow">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href="https://www.instagram.com/p/Dc6zLHcxQyN/?stkn=YWN2OW1tZHdiODZ0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-viv-yellow/15 hover:bg-viv-yellow/25 text-viv-yellow border border-viv-yellow/30 text-xs font-mono transition-colors"
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                  <span>Mohamed Elhagan Instagram</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                </a>
+              </div>
+
+              <div className="flex flex-wrap gap-4 pt-1 text-xs font-mono text-viv-yellow/80">
                 <span>✓ 20+ Years Experience</span>
                 <span>✓ 1B+ Views</span>
                 <span>✓ Directing Across 5 Countries</span>
@@ -187,8 +208,8 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-              {/* ProMedia Clean White Logo Box with generous padding */}
-              <div className="md:col-span-5">
+              {/* ProMedia Clean White Logo Box & Links */}
+              <div className="md:col-span-5 space-y-3">
                 <div 
                   onClick={() => onOpenLightbox({
                     id: 'promedia-logo-contained',
@@ -198,43 +219,54 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                     src: '/assets/promedia/pro-media-logo.png',
                     caption: 'Make your vision PRO — Leading production house in Egypt, France & USA'
                   })}
-                  className="p-8 bg-white rounded-2xl shadow-xl border border-white/20 flex flex-col items-center justify-center cursor-pointer group hover:scale-[1.02] transition-transform"
+                  className="p-8 bg-white rounded-2xl shadow-xl border border-white/20 flex flex-col items-center justify-center cursor-pointer group hover:scale-[1.02] transition-transform aspect-[16/10]"
                 >
                   <img
                     src="/assets/promedia/pro-media-logo.png"
                     alt="ProMedia Logo"
                     className="w-full max-w-[200px] h-auto object-contain"
                   />
-                  <span className="text-[10px] font-mono text-noir/50 uppercase mt-4 tracking-widest flex items-center gap-1">
+                  <span className="text-[10px] font-mono text-noir/60 uppercase mt-4 tracking-widest flex items-center gap-1 font-semibold">
                     <span>View Brand Asset</span>
                     <ExternalLink className="w-3 h-3" />
                   </span>
                 </div>
+                <div className="flex items-center justify-between px-1">
+                  <a
+                    href="https://www.instagram.com/p/Dc6zLHcxQyN/?stkn=YWN2OW1tZHdiODZ0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-viv-yellow hover:underline"
+                  >
+                    <InstagramIcon className="w-3.5 h-3.5" />
+                    <span>ProMedia Instagram</span>
+                    <ExternalLink className="w-3 h-3 opacity-70" />
+                  </a>
+                  <span className="text-[11px] font-mono text-viv-cream/50">pro-media.tv</span>
+                </div>
               </div>
 
-              {/* ProMedia Profile Video Trigger & Summary */}
-              <div className="md:col-span-7 space-y-4">
-                <h4 className="text-xl font-serif text-viv-cream">
-                  ProMedia Production Capabilities
-                </h4>
-                <p className="text-xs sm:text-sm text-viv-cream-soft/80 font-light leading-relaxed">
-                  {promediaData.shortDescription}
-                </p>
+              {/* ProMedia Direct Embedded Video Player */}
+              <div className="md:col-span-7 space-y-3">
+                <div>
+                  <h4 className="text-xl font-serif text-viv-cream mb-1">
+                    ProMedia Production Capabilities
+                  </h4>
+                  <p className="text-xs sm:text-sm text-viv-cream-soft/80 font-light leading-relaxed">
+                    {promediaData.shortDescription}
+                  </p>
+                </div>
 
-                <button
-                  onClick={() => onOpenVideo({
-                    id: 'promedia-profile-reel',
-                    type: 'video',
-                    title: 'ProMedia Production House Promotional Film',
-                    subtitle: 'Official Production Showcase',
-                    src: '/assets/promedia/promedia-promo-video.mp4',
-                    caption: 'ProMedia integrated cinematic production, editing, and commercial campaigns.'
-                  })}
-                  className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-viv-cream border border-viv-yellow/40 font-mono text-xs uppercase tracking-wider flex items-center gap-2 transition-colors shadow-lg"
-                >
-                  <Play className="w-3.5 h-3.5 fill-current text-viv-yellow" />
-                  <span>Watch ProMedia Production Reel</span>
-                </button>
+                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-viv-yellow/30 bg-black">
+                  <video
+                    src="/assets/promedia/promedia-promo-video.mp4"
+                    poster="/assets/promedia/pro-media-logo.png"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -305,8 +337,8 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-              {/* 5 Roosters Brand Logo / Asset */}
-              <div className="md:col-span-5">
+              {/* 5 Roosters Brand Logo & Links */}
+              <div className="md:col-span-5 space-y-3">
                 <div 
                   onClick={() => onOpenLightbox({
                     id: 'five-roosters-brand-contained',
@@ -327,31 +359,42 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                     <span className="text-xs font-mono text-viv-yellow font-bold">5 Roosters Official Logo</span>
                   </div>
                 </div>
+                <div className="flex items-center justify-between px-1">
+                  <a
+                    href="https://www.instagram.com/reel/DHZHs-JSv4z/?stkn=ZzR4MTZpcWh0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-viv-yellow hover:underline"
+                  >
+                    <InstagramIcon className="w-3.5 h-3.5" />
+                    <span>5 Roosters Instagram</span>
+                    <ExternalLink className="w-3 h-3 opacity-70" />
+                  </a>
+                  <span className="text-[11px] font-mono text-viv-cream/50">Culinary Operations</span>
+                </div>
               </div>
 
-              {/* 5 Roosters Video Link */}
-              <div className="md:col-span-7 space-y-4">
-                <h4 className="text-xl font-serif text-viv-cream">
-                  5 Roosters Culinary Operations Video
-                </h4>
-                <p className="text-xs sm:text-sm text-viv-cream-soft/80 font-light leading-relaxed">
-                  {fiveRoostersData.brand.description}
-                </p>
+              {/* 5 Roosters Direct Embedded Video Player */}
+              <div className="md:col-span-7 space-y-3">
+                <div>
+                  <h4 className="text-xl font-serif text-viv-cream mb-1">
+                    5 Roosters Culinary Operations Video
+                  </h4>
+                  <p className="text-xs sm:text-sm text-viv-cream-soft/80 font-light leading-relaxed">
+                    {fiveRoostersData.brand.description}
+                  </p>
+                </div>
 
-                <button
-                  onClick={() => onOpenVideo({
-                    id: 'five-roosters-reel',
-                    type: 'video',
-                    title: '5 Roosters Fried Chicken — Kitchen & Crunch Reel',
-                    subtitle: 'Official Brand Reel',
-                    src: 'https://www.instagram.com/reel/DHZHs-JSv4z/?stkn=ZzR4MTZpcWh0',
-                    caption: 'Experience the signature crunch, kitchen workflow, and high-velocity fast casual operations.'
-                  })}
-                  className="px-6 py-3.5 rounded-full bg-viv-yellow text-viv-chocolate font-mono text-xs uppercase tracking-wider font-bold flex items-center gap-2 hover:bg-viv-yellow-light transition-colors shadow-lg"
-                >
-                  <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
-                  <span>Watch 5 Roosters Video Reel</span>
-                </button>
+                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-viv-yellow/30 bg-black">
+                  <video
+                    src="/assets/five-roosters/five-roosters-video.mp4"
+                    poster="/assets/five-roosters/five-roosters-brand.jpg"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -402,7 +445,20 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                 {elzuzzatData.summary}
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-viv-cream/80">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href="https://www.instagram.com/p/DS8iPn-DMBX/?img_index=9&stkn=MTAwamNjNWRjMmhyeA=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-viv-yellow/15 hover:bg-viv-yellow/25 text-viv-yellow border border-viv-yellow/30 text-xs font-mono transition-colors"
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                  <span>Elzuzzat Instagram (+9.7M Community)</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                </a>
+              </div>
+
+              <div className="flex flex-wrap gap-4 pt-1 text-xs font-mono text-viv-cream/80">
                 <span>TikTok: 3.7M</span>
                 <span>Facebook: 4.6M</span>
                 <span>Instagram: 1.4M</span>
@@ -410,7 +466,7 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
             </div>
           </div>
 
-          {/* Dedicated Blue View Subsection with Official Logo & Connected Instagram Reel */}
+          {/* Dedicated Blue View Subsection with Official Logo & Embedded Video Player */}
           <div className="pt-8 border-t border-viv-yellow/20">
             <div className="flex items-center justify-between mb-6">
               <span className="text-xs font-mono uppercase tracking-widest text-viv-yellow font-bold">
@@ -422,8 +478,8 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-              {/* Official Blue View Brand Logo */}
-              <div className="md:col-span-5">
+              {/* Official Blue View Brand Logo & Links */}
+              <div className="md:col-span-5 space-y-3">
                 <div 
                   onClick={() => onOpenLightbox({
                     id: 'blue-view-brand-contained',
@@ -444,31 +500,42 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                     <span className="text-xs font-mono text-viv-yellow font-bold">Blue View Official Logo</span>
                   </div>
                 </div>
+                <div className="flex items-center justify-between px-1">
+                  <a
+                    href="https://www.instagram.com/reel/DdLo3hgtetO/?stkn=MWYzazdkbWUxNnF0eQ=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-viv-yellow hover:underline"
+                  >
+                    <InstagramIcon className="w-3.5 h-3.5" />
+                    <span>Blue View Cafe Instagram</span>
+                    <ExternalLink className="w-3 h-3 opacity-70" />
+                  </a>
+                  <span className="text-[11px] font-mono text-viv-cream/50">Nile Corniche</span>
+                </div>
               </div>
 
-              {/* Blue View Summary & Action */}
-              <div className="md:col-span-7 space-y-4">
-                <h4 className="text-xl font-serif text-viv-cream">
-                  Blue View Hospitality Experience
-                </h4>
-                <p className="text-xs sm:text-sm text-viv-cream-soft/80 font-light leading-relaxed">
-                  {elzuzzatData.hospitality.description}
-                </p>
+              {/* Blue View Direct Embedded Video Player */}
+              <div className="md:col-span-7 space-y-3">
+                <div>
+                  <h4 className="text-xl font-serif text-viv-cream mb-1">
+                    Blue View Hospitality Experience
+                  </h4>
+                  <p className="text-xs sm:text-sm text-viv-cream-soft/80 font-light leading-relaxed">
+                    {elzuzzatData.hospitality.description}
+                  </p>
+                </div>
 
-                <button
-                  onClick={() => onOpenVideo({
-                    id: 'blue-view-video',
-                    type: 'video',
-                    title: 'Blue View Cafe — Hospitality Showcase',
-                    subtitle: 'Official Video Reel by Elzuzzat',
-                    src: 'https://www.instagram.com/reel/DDNM_6rN_EH/?stkn=ZTlveHBqNjk3eHRp',
-                    caption: 'Atmospheric dining and social cafe moments at Blue View Cafe developed by Elzuzzat.'
-                  })}
-                  className="px-6 py-3.5 rounded-full bg-viv-yellow text-viv-chocolate font-mono text-xs uppercase tracking-wider font-bold flex items-center gap-2 hover:bg-viv-yellow-light transition-colors shadow-lg"
-                >
-                  <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
-                  <span>Watch Blue View Hospitality Showcase</span>
-                </button>
+                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-viv-yellow/30 bg-black">
+                  <video
+                    src="/assets/elzuzzat/blue-view-video.mp4"
+                    poster="/assets/elzuzzat/blue-view-logo.jpg"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -519,7 +586,20 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                 {salamData.bio}
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-viv-cream/80">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href="https://www.instagram.com/p/Dc6zLHcxQyN/?stkn=YWN2OW1tZHdiODZ0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-viv-yellow/15 hover:bg-viv-yellow/25 text-viv-yellow border border-viv-yellow/30 text-xs font-mono transition-colors"
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                  <span>Mohamed Salam Instagram</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                </a>
+              </div>
+
+              <div className="flex flex-wrap gap-4 pt-1 text-xs font-mono text-viv-cream/80">
                 <span>✓ El Kabeer Awy</span>
                 <span>✓ Karset Tabeia (WATCH IT Lead)</span>
                 <span>✓ 20+ Landmark Egyptian Feature Films</span>
@@ -527,7 +607,7 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
             </div>
           </div>
 
-          {/* Simple Dedicated Selected Work Video Section */}
+          {/* Dedicated Selected Work Video Player */}
           <div className="pt-8 border-t border-viv-yellow/20">
             <div className="flex items-center justify-between mb-6">
               <span className="text-xs font-mono uppercase tracking-widest text-viv-yellow font-bold">
@@ -538,30 +618,39 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
               </span>
             </div>
 
-            <div className="p-8 rounded-2xl bg-viv-burgundy-deep border border-viv-yellow/30 flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div className="space-y-1 text-center sm:text-left">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div className="md:col-span-5 space-y-4">
                 <h4 className="text-xl font-serif text-viv-cream font-medium">
                   Mohamed Salam — Selected Works & Highlights
                 </h4>
-                <p className="text-xs font-mono text-viv-cream/70">
-                  Featured Cinematic & Dramatic Performances
+                <p className="text-xs sm:text-sm text-viv-cream-soft/80 font-light leading-relaxed">
+                  Curated highlight of Mohamed Salam's landmark cinematic and dramatic achievements across Egyptian television and cinema.
                 </p>
+                <div className="pt-2">
+                  <a
+                    href="https://youtu.be/szOPQ44Cllg?si=MJHN8l_z0vjmGlf4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-viv-yellow border border-viv-yellow/30 text-xs font-mono transition-colors"
+                  >
+                    <Play className="w-3.5 h-3.5 fill-current" />
+                    <span>Watch on YouTube</span>
+                    <ExternalLink className="w-3 h-3 opacity-70" />
+                  </a>
+                </div>
               </div>
 
-              <button
-                onClick={() => onOpenVideo({
-                  id: 'salam-youtube-reel',
-                  type: 'video',
-                  title: 'Mohamed Salam — Selected Work',
-                  subtitle: 'Curated Cinematic Performances',
-                  src: 'https://youtu.be/szOPQ44Cllg?si=MJHN8l_z0vjmGlf4',
-                  caption: 'Official video highlight of Mohamed Salam curated dramatic and comedic achievements.'
-                })}
-                className="px-8 py-3.5 rounded-full bg-viv-yellow text-viv-chocolate font-mono text-xs uppercase tracking-widest font-bold flex items-center gap-2 hover:bg-viv-yellow-light transition-all shadow-xl whitespace-nowrap"
-              >
-                <Play className="w-4 h-4 fill-current ml-0.5" />
-                <span>Watch Selected Work Video</span>
-              </button>
+              <div className="md:col-span-7">
+                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-viv-yellow/30 bg-black">
+                  <iframe
+                    src="https://www.youtube.com/embed/szOPQ44Cllg?rel=0"
+                    title="Mohamed Salam — Selected Works"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full border-0"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
