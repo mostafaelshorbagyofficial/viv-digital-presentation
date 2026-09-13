@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ArrowDown, Sparkles, Play, Coffee } from 'lucide-react';
 import { MediaItem } from '../../types/presentation';
 
@@ -43,10 +43,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
         </div>
       </div>
 
-      {/* Central Typographic Monument & Right Logo Card */}
+      {/* Central Typographic Monument & Right Visible Brand Film Video Player */}
       <div className="max-w-7xl mx-auto w-full my-auto py-10 sm:py-16 z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-        {/* Left Column: Headline, Subtitle, Action Buttons */}
-        <div className="lg:col-span-7 xl:col-span-8 space-y-6">
+        {/* Left Column: Headline, Subtitle, Action Button */}
+        <div className="lg:col-span-7 xl:col-span-7 space-y-6">
           {/* Script Accent */}
           <div className="flex items-center gap-3">
             <span className="text-lg sm:text-2xl font-serif italic text-viv-yellow">
@@ -65,26 +65,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
             </p>
           </div>
 
-          {/* Quick Action Buttons */}
+          {/* Quick Action Button */}
           <div className="pt-6 flex flex-wrap items-center gap-4">
             <button
-              onClick={() => onOpenVideo({
-                id: 'hero-brand-film',
-                type: 'video',
-                title: 'VIV Croissants — The Artisanal Film',
-                subtitle: 'Craft, Butter & Lamination',
-                src: '/assets/vid/croissant-video-1.mp4',
-                caption: 'Watch the delicate flakiness, pure cultured French butter lamination, and sensory café baking.'
-              })}
-              className="px-8 py-4 rounded-full bg-viv-yellow text-viv-chocolate font-mono text-xs tracking-widest uppercase font-bold hover:bg-viv-yellow-light transition-all duration-300 shadow-xl shadow-viv-yellow/20 flex items-center gap-3 group transform hover:scale-105"
-            >
-              <Play className="w-4 h-4 fill-current ml-0.5" />
-              <span>Watch Brand Film</span>
-            </button>
-
-            <button
               onClick={handleScrollToNext}
-              className="px-8 py-4 rounded-full bg-viv-burgundy/60 hover:bg-viv-burgundy text-viv-cream font-mono text-xs tracking-widest uppercase border border-viv-yellow/30 transition-all duration-300 flex items-center gap-2 backdrop-blur-md"
+              className="px-8 py-4 rounded-full bg-viv-yellow text-viv-chocolate font-mono text-xs tracking-widest uppercase font-bold hover:bg-viv-yellow-light transition-all duration-300 shadow-xl shadow-viv-yellow/20 flex items-center gap-3 group transform hover:scale-105"
             >
               <span>Explore The Concept</span>
               <ArrowDown className="w-4 h-4" />
@@ -92,18 +77,32 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
           </div>
         </div>
 
-        {/* Right Column: Clean Premium VIV Brand Logo on Dark Burgundy */}
-        <div className="lg:col-span-5 xl:col-span-4 flex justify-start lg:justify-end">
-          <div className="w-full max-w-sm sm:max-w-md p-8 sm:p-10 rounded-3xl bg-viv-burgundy-dark/85 border border-viv-yellow/30 shadow-2xl flex flex-col items-center justify-center text-center group transition-all duration-300 hover:border-viv-yellow/60 backdrop-blur-md">
-            <div className="w-full flex items-center justify-center p-2">
-              <img
-                src="/assets/viv/viv-official-logo.png"
-                alt="VIV Croissants Official Logo"
-                className="w-full h-auto max-h-[170px] object-contain drop-shadow-md"
+        {/* Right Column: Directly Visible VIV Brand Film Video Player */}
+        <div className="lg:col-span-5 xl:col-span-5 flex justify-center lg:justify-end w-full">
+          <div className="w-full max-w-lg rounded-3xl bg-viv-burgundy-dark/90 border-2 border-viv-yellow/30 shadow-2xl p-4 sm:p-5 backdrop-blur-md space-y-3 transition-all duration-300 hover:border-viv-yellow/60">
+            <div className="flex items-center justify-between px-1">
+              <span className="text-xs font-mono uppercase tracking-widest text-viv-yellow font-bold flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>VIV Brand Film</span>
+              </span>
+              <span className="text-[11px] font-mono text-viv-cream/70">
+                Craft, Butter & Lamination
+              </span>
+            </div>
+
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-viv-yellow/20 bg-black">
+              <video
+                src="/assets/vid/croissant-video-1.mp4"
+                poster="/assets/viv/viv-brand-hero-banner.png"
+                controls
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="mt-4 pt-3 border-t border-viv-yellow/20 w-full flex items-center justify-between text-[11px] font-mono text-viv-cream/80">
-              <span className="font-bold tracking-widest uppercase text-viv-yellow">Official Identity</span>
+
+            <div className="flex items-center justify-between px-1 pt-1 text-[11px] font-mono text-viv-cream/80">
+              <span className="font-semibold text-viv-yellow">Artisanal Cinematic Film 01</span>
               <span className="italic font-serif">VIV Croissants</span>
             </div>
           </div>
