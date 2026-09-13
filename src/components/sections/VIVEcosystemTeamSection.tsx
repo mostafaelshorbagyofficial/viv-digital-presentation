@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { MediaItem } from '../../types/presentation';
 import { elhaganData } from '../../data/elhaganData';
 import { salamData } from '../../data/salamData';
@@ -316,12 +316,12 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                     src: fiveRoostersData.brand.image,
                     caption: '5 Roosters Fried Chicken — Fast-casual operations powerhouse'
                   })}
-                  className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-viv-yellow/20 bg-viv-chocolate cursor-pointer group hover:scale-[1.02] transition-transform flex items-center justify-center p-2"
+                  className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-viv-yellow/20 bg-viv-chocolate cursor-pointer group hover:scale-[1.02] transition-transform"
                 >
                   <img
                     src={fiveRoostersData.brand.image}
                     alt="5 Roosters Brand"
-                    className="w-full h-full max-h-[180px] object-contain"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                     <span className="text-xs font-mono text-viv-yellow font-bold">5 Roosters Official Logo</span>
@@ -433,12 +433,12 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                     src: '/assets/elzuzzat/blue-view-logo.jpg',
                     caption: 'Blue View Cafe and Restaurant — Nile View Hospitality Destination'
                   })}
-                  className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-viv-yellow/20 bg-viv-chocolate cursor-pointer group hover:scale-[1.02] transition-transform flex items-center justify-center p-3"
+                  className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-viv-yellow/20 bg-viv-chocolate cursor-pointer group hover:scale-[1.02] transition-transform"
                 >
                   <img
                     src="/assets/elzuzzat/blue-view-logo.jpg"
                     alt="Blue View Cafe Official Logo"
-                    className="w-full h-full max-h-[180px] object-contain rounded-full shadow-lg"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                     <span className="text-xs font-mono text-viv-yellow font-bold">Blue View Official Logo</span>
