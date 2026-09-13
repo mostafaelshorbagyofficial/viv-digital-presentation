@@ -58,26 +58,20 @@ export const TopNavigation: React.FC = () => {
         className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${
           isScrolled
             ? 'bg-viv-burgundy-deep/95 backdrop-blur-xl border-b border-viv-yellow/20 py-3 shadow-2xl'
-            : 'bg-gradient-to-b from-viv-burgundy-deep/90 via-viv-burgundy-deep/40 to-transparent py-5'
+            : 'bg-gradient-to-b from-viv-burgundy-deep/90 via-viv-burgundy-deep/40 to-transparent py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* VIV Brand Identity Logo */}
+          {/* Official VIV Brand Logo (No white background, actual logo) */}
           <button
             onClick={() => scrollToSection('hero')}
-            className="flex items-center gap-3 text-left group"
+            className="flex items-center text-left group py-1"
           >
-            <div className="h-9 px-3 rounded-lg bg-viv-yellow text-viv-chocolate font-serif font-black text-xl tracking-tighter flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-              VIV
-            </div>
-            <div>
-              <span className="text-xs font-mono tracking-widest text-viv-cream group-hover:text-viv-yellow transition-colors uppercase font-bold block">
-                CROISSANTS
-              </span>
-              <span className="text-[10px] font-serif italic text-viv-yellow/80">
-                Good Food Brighter Days
-              </span>
-            </div>
+            <img
+              src="/assets/viv/viv-official-logo.png"
+              alt="VIV Croissants"
+              className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md"
+            />
           </button>
 
           {/* Desktop Navigation */}

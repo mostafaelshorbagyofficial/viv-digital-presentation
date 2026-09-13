@@ -316,15 +316,15 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
                     src: fiveRoostersData.brand.image,
                     caption: '5 Roosters Fried Chicken — Fast-casual operations powerhouse'
                   })}
-                  className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-viv-yellow/20 bg-viv-chocolate cursor-pointer group hover:scale-[1.02] transition-transform"
+                  className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-viv-yellow/20 bg-viv-chocolate cursor-pointer group hover:scale-[1.02] transition-transform flex items-center justify-center p-2"
                 >
                   <img
                     src={fiveRoostersData.brand.image}
                     alt="5 Roosters Brand"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full max-h-[180px] object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                    <span className="text-xs font-mono text-viv-yellow font-bold">5 Roosters Brand Asset</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-xs font-mono text-viv-yellow font-bold">5 Roosters Official Logo</span>
                   </div>
                 </div>
               </div>
@@ -410,7 +410,7 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
             </div>
           </div>
 
-          {/* Dedicated Blue View Subsection with Connected Instagram Reel */}
+          {/* Dedicated Blue View Subsection with Official Logo & Connected Instagram Reel */}
           <div className="pt-8 border-t border-viv-yellow/20">
             <div className="flex items-center justify-between mb-6">
               <span className="text-xs font-mono uppercase tracking-widest text-viv-yellow font-bold">
@@ -422,16 +422,31 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-              {/* Blue View Brand Visual */}
+              {/* Official Blue View Brand Logo */}
               <div className="md:col-span-5">
-                <div className="p-6 rounded-2xl bg-viv-burgundy-deep border border-viv-yellow/30 text-center space-y-2">
-                  <Coffee className="w-8 h-8 text-viv-yellow mx-auto" />
-                  <h5 className="font-serif text-xl text-viv-cream font-medium">BLUE VIEW CAFE</h5>
-                  <p className="text-xs font-mono text-viv-cream/60">Flagship Hospitality Venture</p>
+                <div 
+                  onClick={() => onOpenLightbox({
+                    id: 'blue-view-brand-contained',
+                    type: 'image',
+                    title: 'Blue View Cafe & Restaurant',
+                    subtitle: 'Official Hospitality Brand Logo',
+                    src: '/assets/elzuzzat/blue-view-logo.jpg',
+                    caption: 'Blue View Cafe and Restaurant — Nile View Hospitality Destination'
+                  })}
+                  className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-viv-yellow/20 bg-viv-chocolate cursor-pointer group hover:scale-[1.02] transition-transform flex items-center justify-center p-3"
+                >
+                  <img
+                    src="/assets/elzuzzat/blue-view-logo.jpg"
+                    alt="Blue View Cafe Official Logo"
+                    className="w-full h-full max-h-[180px] object-contain rounded-full shadow-lg"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-xs font-mono text-viv-yellow font-bold">Blue View Official Logo</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Blue View Summary & Action with exact requested video */}
+              {/* Blue View Summary & Action */}
               <div className="md:col-span-7 space-y-4">
                 <h4 className="text-xl font-serif text-viv-cream">
                   Blue View Hospitality Experience
