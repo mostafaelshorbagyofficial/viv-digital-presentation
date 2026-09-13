@@ -110,7 +110,7 @@ export const VIVPartnershipSection: React.FC<VIVPartnershipSectionProps> = ({
               <div className="p-6 rounded-2xl bg-white border border-viv-burgundy/10 space-y-3 text-xs font-mono text-viv-chocolate/80">
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-viv-burgundy" />
-                  <span>info@pro-m-edia.com</span>
+                  <span>promedia.eg.official@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-viv-burgundy" />

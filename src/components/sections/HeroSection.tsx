@@ -92,18 +92,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
           </div>
         </div>
 
-        {/* Right Column: Clean Premium VIV Brand Logo Container */}
+        {/* Right Column: Clean Premium VIV Brand Logo on Dark Burgundy */}
         <div className="lg:col-span-5 xl:col-span-4 flex justify-start lg:justify-end">
-          <div className="w-full max-w-sm sm:max-w-md p-6 sm:p-8 rounded-3xl bg-viv-cream border border-viv-yellow/40 shadow-2xl flex flex-col items-center justify-center text-center group transition-all duration-300 hover:shadow-viv-yellow/10">
-            <div className="w-full overflow-hidden rounded-2xl bg-white p-6 sm:p-8 shadow-sm border border-viv-burgundy/5 flex items-center justify-center">
+          <div className="w-full max-w-sm sm:max-w-md p-8 sm:p-10 rounded-3xl bg-viv-burgundy-dark/85 border border-viv-yellow/30 shadow-2xl flex flex-col items-center justify-center text-center group transition-all duration-300 hover:border-viv-yellow/60 backdrop-blur-md">
+            <div className="w-full flex items-center justify-center p-2">
               <img
                 src="/assets/viv/viv-official-logo.png"
                 alt="VIV Croissants Official Logo"
-                className="w-full h-auto max-h-[160px] object-contain"
+                className="w-full h-auto max-h-[170px] object-contain drop-shadow-md"
               />
             </div>
-            <div className="mt-4 pt-3 border-t border-viv-burgundy/10 w-full flex items-center justify-between text-[11px] font-mono text-viv-burgundy/80">
-              <span className="font-bold tracking-widest uppercase">Official Identity</span>
+            <div className="mt-4 pt-3 border-t border-viv-yellow/20 w-full flex items-center justify-between text-[11px] font-mono text-viv-cream/80">
+              <span className="font-bold tracking-widest uppercase text-viv-yellow">Official Identity</span>
               <span className="italic font-serif">VIV Croissants</span>
             </div>
           </div>

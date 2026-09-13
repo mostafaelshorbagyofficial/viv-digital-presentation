@@ -140,7 +140,7 @@ export const promediaData = {
 
   contact: {
     website: "www.pro-m-edia.com",
-    email: "info@pro-m-edia.com",
+    email: "promedia.eg.official@gmail.com",
     locations: [
       { country: "Egypt", address: "Giza - El Mariouteya", phone: "00201061119700" },
       { country: "France", address: "100 rue jean jaures", phone: "0033751309179" },
