@@ -500,13 +500,15 @@ export const VIVEcosystemTeamSection: React.FC<VIVEcosystemTeamSectionProps> = (
 
                 <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-viv-yellow/30 bg-black">
                   <video
-                    src="/assets/elzuzzat/blue-view-video.mp4"
                     poster="/assets/elzuzzat/blue-view-logo.jpg"
                     controls
                     playsInline
                     preload="metadata"
                     className="w-full h-full object-cover"
-                  />
+                  >
+                    <source src="/assets/elzuzzat/blue-view-video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </div>
             </div>
