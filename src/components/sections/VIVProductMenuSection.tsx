@@ -1,8 +1,13 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { vivData } from '../../data/vivData';
-import { Sparkles, UtensilsCrossed, Coffee, HeartHandshake, CheckCircle2 } from 'lucide-react';
+import { Sparkles, UtensilsCrossed, Coffee, HeartHandshake, CheckCircle2, Eye, ZoomIn } from 'lucide-react';
+import { MediaItem } from '../../types/presentation';
 
-export const VIVProductMenuSection: React.FC = () => {
+interface VIVProductMenuSectionProps {
+  onOpenLightbox?: (media: MediaItem) => void;
+}
+
+export const VIVProductMenuSection: React.FC<VIVProductMenuSectionProps> = ({ onOpenLightbox }) => {
   const [activeCategory, setActiveCategory] = useState<number>(0);
 
   return (
@@ -155,6 +160,97 @@ export const VIVProductMenuSection: React.FC = () => {
 
             <div className="pt-6 border-t border-viv-yellow/20 text-xs font-mono text-viv-cream/80">
               {vivData.signature.note}
+            </div>
+          </div>
+        </div>
+
+        {/* ===================================================
+            OFFICIAL VIV CROISSANTS MENU — OPENABLE HIGH-RES SHEETS
+        =================================================== */}
+        <div className="pt-16 border-t border-viv-yellow/20 space-y-10">
+          <div className="text-center max-w-3xl mx-auto">
+            <span className="text-xs font-mono uppercase tracking-[0.25em] text-viv-yellow font-bold block mb-3">
+              Official Printed Menu
+            </span>
+            <h3 className="text-3xl sm:text-5xl font-serif text-viv-cream font-normal leading-tight">
+              Explore The Full VIV Menu
+            </h3>
+            <p className="mt-4 text-sm sm:text-base text-viv-cream-soft font-light">
+              Click any menu sheet below to open and zoom in high resolution.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start max-w-5xl mx-auto">
+            {/* Menu Sheet 1 */}
+            <div
+              onClick={() => onOpenLightbox && onOpenLightbox({
+                id: 'viv-menu-sheet-1',
+                type: 'image',
+                title: 'VIV Croissants — Official Menu (Originals, Savory & Drinks)',
+                subtitle: 'Freshly Baked Always · All-Day Café Selection',
+                src: '/assets/viv/viv-menu-1.jpg',
+                caption: 'VIV Croissants complete menu offering: The Originals, Savory Breakfast & Beef Croissants, VIV Bites, Sides, and Coffee.'
+              })}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-viv-yellow/30 bg-viv-burgundy-dark cursor-pointer group hover:border-viv-yellow/70 transition-all duration-500"
+            >
+              <div className="relative aspect-[1/1.45] w-full overflow-hidden bg-viv-chocolate">
+                <img
+                  src="/assets/viv/viv-menu-1.jpg"
+                  alt="VIV Croissants Menu Sheet 1"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                <div className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 text-viv-yellow backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 text-xs font-mono">
+                  <Eye className="w-4 h-4" />
+                  <span>Click to Expand</span>
+                </div>
+              </div>
+              <div className="p-5 flex items-center justify-between border-t border-viv-yellow/20 bg-viv-burgundy-deep">
+                <div>
+                  <h4 className="text-base font-serif text-viv-cream font-medium">Menu Presentation — Sheet 01</h4>
+                  <p className="text-xs font-mono text-viv-yellow">Originals, Savory, Bites & Coffee</p>
+                </div>
+                <button className="px-4 py-2 rounded-full bg-viv-yellow/15 text-viv-yellow border border-viv-yellow/40 text-xs font-mono font-bold flex items-center gap-1.5 group-hover:bg-viv-yellow group-hover:text-viv-chocolate transition-colors">
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>Open Menu</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Menu Sheet 2 */}
+            <div
+              onClick={() => onOpenLightbox && onOpenLightbox({
+                id: 'viv-menu-sheet-2',
+                type: 'image',
+                title: 'VIV Croissants — Official Menu (Categorized Strategy)',
+                subtitle: 'Highlighted Menu Edition · 5 Core Categories',
+                src: '/assets/viv/viv-menu-2.jpg',
+                caption: 'VIV Croissants categorized menu breakdown with complete price points, beverage pairings, and dessert selection.'
+              })}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-viv-yellow/30 bg-viv-burgundy-dark cursor-pointer group hover:border-viv-yellow/70 transition-all duration-500"
+            >
+              <div className="relative aspect-[1/1.45] w-full overflow-hidden bg-viv-chocolate">
+                <img
+                  src="/assets/viv/viv-menu-2.jpg"
+                  alt="VIV Croissants Menu Sheet 2"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                <div className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 text-viv-yellow backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 text-xs font-mono">
+                  <Eye className="w-4 h-4" />
+                  <span>Click to Expand</span>
+                </div>
+              </div>
+              <div className="p-5 flex items-center justify-between border-t border-viv-yellow/20 bg-viv-burgundy-deep">
+                <div>
+                  <h4 className="text-base font-serif text-viv-cream font-medium">Menu Presentation — Sheet 02</h4>
+                  <p className="text-xs font-mono text-viv-yellow">Categorized Architecture & Strategy</p>
+                </div>
+                <button className="px-4 py-2 rounded-full bg-viv-yellow/15 text-viv-yellow border border-viv-yellow/40 text-xs font-mono font-bold flex items-center gap-1.5 group-hover:bg-viv-yellow group-hover:text-viv-chocolate transition-colors">
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>Open Menu</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

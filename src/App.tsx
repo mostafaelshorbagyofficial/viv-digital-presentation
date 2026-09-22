@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { TopNavigation } from './components/layout/TopNavigation';
 import { HeroSection } from './components/sections/HeroSection';
 import { VIVBrandStorySection } from './components/sections/VIVBrandStorySection';
@@ -46,7 +46,7 @@ export function App() {
       <VIVBrandStorySection onOpenLightbox={handleOpenLightbox} />
 
       {/* 03 — VIV Product & Menu */}
-      <VIVProductMenuSection />
+      <VIVProductMenuSection onOpenLightbox={handleOpenLightbox} />
 
       {/* 04 — VIV Customer & Occasions */}
       <VIVCustomerOccasionsSection />
