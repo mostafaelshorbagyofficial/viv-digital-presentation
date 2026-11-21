@@ -1,32 +1,35 @@
-# React + TypeScript + Vite
+# VIV Croissants × ProMedia — Interactive F&B Brand Growth & Digital Pitch Deck
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+![VIV Croissants Presentation Preview](./public/preview.jpg)
 
-Currently, two official plugins are available:
+🌐 **Live Presentation:** [viv-digital-presentation.vercel.app](https://viv-digital-presentation.vercel.app/)  
+🏢 **Agency Partner:** **ProMedia**  
+👨‍💻 **Digital Engineering & Execution:** [Mostafa Mohamed Farhat (Elshorbagy)](https://mostafa-portfolio-iota.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+An interactive F&B brand growth, visual menu showcase, and creator marketing pitch deck developed for **VIV Croissants** in partnership with **ProMedia**.
 
-## Expanding the Oxlint configuration
+### Key Features
+- **Brand & Product Showcase:** High-impact presentation of VIV Croissants' official brand identity, menu photography, and positioning.
+- **F&B Production & Creator Proof:** Integrates case studies and food-creator collaborations (*5 Roosters*, *El Zuzzat*, *Blue View*).
+- **Commercial Growth Roadmap:** Structured digital marketing, short-form video production, and influencer activation strategy.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+---
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Tech Stack
+- **Framework:** React + TypeScript + Vite
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel
+
+---
+
+## Local Development
+
+```bash
+npm install
+npm run dev
+npm run build
 ```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
